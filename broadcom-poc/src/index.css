@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 10.6% 64.9%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 94.1%;
+    --sidebar-primary-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 10.6% 64.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Custom Scrollbar Styling with dark navy theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-echostor-navy-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-echostor-navy-600 rounded-full;
+    transition: background-color 0.2s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-echostor-lime-500;
+  }
+
+  /* Enhanced focus styles with lime green */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-echostor-lime-500 ring-offset-2 ring-offset-echostor-navy-800;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+    font-feature-settings: "ss01" 1, "ss02" 1;
+  }
+
+  /* Enhanced selection colors with lime green on dark navy */
+  ::selection {
+    @apply bg-echostor-lime-400 text-echostor-navy-900;
+  }
+
+  /* Improved button and interactive element styles */
+  button, [role="button"] {
+    @apply transition-all duration-200 ease-in-out;
+  }
+
+  /* Loading animation improvements with dark navy theme */
+  @keyframes shimmer {
+    0% {
+      background-position: -200px 0;
+    }
+    100% {
+      background-position: calc(200px + 100%) 0;
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+    background-size: 200px 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Gradient text utility with lime green */
+  .gradient-text {
+    @apply bg-gradient-to-r from-echostor-lime-400 to-echostor-teal-400 bg-clip-text text-transparent;
+  }
+
+  /* Glass morphism effect for dark theme */
+  .glass {
+    @apply backdrop-blur-sm bg-echostor-navy-800/80 border border-echostor-navy-700/50;
+  }
+
+  /* Enhanced shadows with lime glow */
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(163, 230, 53, 0.25);
+  }
+
+  .shadow-glow-hover:hover {
+    box-shadow: 0 0 30px rgba(163, 230, 53, 0.35);
+  }
+}
+
+@layer components {
+  /* Chat bubble animations */
+  .chat-bubble-enter {
+    animation: chatBubbleEnter 0.3s ease-out;
+  }
+
+  @keyframes chatBubbleEnter {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* Typing indicator with lime green */
+  .typing-indicator {
+    @apply flex space-x-1;
+  }
+
+  .typing-dot {
+    @apply w-2 h-2 bg-echostor-lime-400 rounded-full;
+    animation: typingDot 1.4s infinite ease-in-out both;
+  }
+
+  .typing-dot:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+
+  .typing-dot:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+
+  @keyframes typingDot {
+    0%, 80%, 100% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Enhanced button styles matching EchoStor website */
+  .btn-primary {
+    @apply bg-gradient-to-r from-echostor-lime-500 to-echostor-lime-600 hover:from-echostor-lime-600 hover:to-echostor-lime-700 text-echostor-navy-900 font-bold py-2 px-6 rounded-lg shadow-lime-glow hover:shadow-glow-hover transition-all duration-300 transform hover:scale-105;
+  }
+
+  .btn-secondary {
+    @apply bg-gradient-to-r from-echostor-navy-700 to-echostor-navy-800 hover:from-echostor-navy-600 hover:to-echostor-navy-700 text-white font-medium py-2 px-6 rounded-lg border border-echostor-navy-600 shadow-sm hover:shadow-card transition-all duration-300;
+  }
+
+  /* Enhanced input styles with dark theme */
+  .input-enhanced {
+    @apply bg-echostor-navy-700 border border-echostor-navy-600 rounded-lg px-4 py-3 text-white placeholder:text-echostor-gray-400 focus:border-echostor-lime-500 focus:ring-2 focus:ring-echostor-lime-500 focus:ring-opacity-20 transition-all duration-300;
+  }
+
+  /* Card styles with dark theme */
+  .card-elevated {
+    @apply bg-echostor-navy-800 rounded-xl shadow-card border border-echostor-navy-700 p-6 transition-all duration-300 hover:shadow-card-hover;
+  }
+
+  /* Status indicators updated with logo colors */
+  .status-online {
+    @apply bg-green-500 text-white;
+  }
+
+  .status-busy {
+    @apply bg-echostor-red-500 text-white;
+  }
+
+  .status-away {
+    @apply bg-yellow-500 text-echostor-navy-900;
+  }
+
+  .status-offline {
+    @apply bg-echostor-gray-400 text-white;
+  }
+}
